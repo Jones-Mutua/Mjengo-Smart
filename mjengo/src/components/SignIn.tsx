@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link} from "react-router-dom";
 // import img11 from "../../assents/images/undraw_Order_ride_re_372k.svg"
-// import axios from "axios";
+import axios from "axios";
 import tw from 'twin.macro';
 import styled from 'styled-components';
 
@@ -171,36 +171,36 @@ ${tw``}
 `
 
 export const SignIn = () => {
-//   const [email, setEmail] = useState('');
-//       const [password, setPassword] = useState('');
-//       const[redirect, setRedirect] = useState('');
+  const [email, setEmail] = useState('');
+      const [password, setPassword] = useState('');
+      const[redirect, setRedirect] = useState('');
   
   
-    //   const handleSubmit = (e: React.FormEvent) => {
-    //       e.preventDefault();
+      const handleSubmit = (e: React.FormEvent) => {
+          e.preventDefault();
 
 
 
-        //   axios
-        //        .post('http://localhost:2500/api/auth/login', {
-        //               email,
-        //               password,
-        //           })
-        //           .then((res)=> {
-        //               const user = res.data.data;
-        //               localStorage.setItem("user", JSON.stringify(user));
-        //               if (user.role === 'admin') {
-        //                   setRedirect("/panel")
-        //               }else if (user.role === 'client') {
-        //                   setRedirect('/rentals');
-        //                   window.location.reload();
-        //               }
-        //           })
-        //           .catch((err) => {
-        //               console.log(err.message);
-        //           });
+          axios
+               .post('http://localhost:2500/api/auth/login', {
+                      email,
+                      password,
+                  })
+                  .then((res)=> {
+                      const user = res.data.data;
+                      localStorage.setItem("user", JSON.stringify(user));
+                      if (user.role === 'admin') {
+                          setRedirect("/panel")
+                      }else if (user.role === 'client') {
+                          setRedirect('/rentals');
+                          window.location.reload();
+                      }
+                  })
+                  .catch((err) => {
+                      console.log(err.message);
+                  });
           
-        //       };
+              };
               
 
 
@@ -213,18 +213,18 @@ export const SignIn = () => {
         <Input 
         type="text" 
         required 
-        // value={email}
-        // onChange={(e) => setEmail(e.target.value)}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         placeholder="mjengo@gmail.com" 
         name="email" 
       
          />
         <Input
          type="password" 
-        //  value={password}
+         value={password}
                         
          placeholder="*********"
-        //  onChange={(e) => setPassword(e.target.value)}
+         onChange={(e) => setPassword(e.target.value)}
           name="password"
 
  />
