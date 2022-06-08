@@ -159,7 +159,7 @@ const Input = styled.input`
     border-radius: 2rem;
   }
   &::placeholder {
-    color: #b9abe099;
+    color: blue;
     font-weight: 100;
     font-size: 1rem;
   }
@@ -215,7 +215,7 @@ export const SignIn = () => {
         required 
         // value={email}
         // onChange={(e) => setEmail(e.target.value)}
-        placeholder="luxcars@gmail.com" 
+        placeholder="mjengo@gmail.com" 
         name="email" 
       
          />
