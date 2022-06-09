@@ -5,7 +5,7 @@ export const HomePage = () => {
   return (
     <>
 <NavBar />
-
+<button ><a href="/addpost">+ post</a></button>
     </>
   )
 }

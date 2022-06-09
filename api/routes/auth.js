@@ -42,12 +42,6 @@ Router.post('/signup', async (req, res) => {
 
 Router.post('/login', async (req, res)=> {
   const {email, password } = req.body;
-
-
-
-
-
-
 // check if username exists
 const user = await User.findOne({ email}).exec();
 if (!user) {
