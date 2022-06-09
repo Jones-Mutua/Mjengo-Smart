@@ -2,6 +2,7 @@ const express = require('express');
 require("dotenv").config();
 const mongoose = require('mongoose');
 const authRoutes = require("../api/routes/auth");
+const blogs = require("./controllers/posts");
 const cors = require('cors');
 const morgan = require("morgan");
 
@@ -24,6 +25,7 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use('/api/blog', blogs);
 
 
 app.listen(PORT, () => {

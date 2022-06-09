@@ -1,5 +1,5 @@
 const Router = require('express').Router();
-const Posts = require('../models/posts');
+const Post = require('../models/posts');
 
 //create new blog
 Router.post('/create', async (req,res) => {
@@ -38,19 +38,19 @@ Router.get('/read-all', async (req, res) => {
 
   //get by id
 
-  Router.get('/read-one/:_id', async (req, res) ⇒ {
-    const blog = await Posts.findOne(req.params._id)
-    if (blog.error) {
-      res.status(500).json({
-        message: blog.error,
-        blogs: blog.data
-      })
-    }
-    res.status(200).json({
-        message: 'success',
-        blog: blog.data
-      }) 
-  });
+//   Router.get('/read-one/:_id', async (req, res) ⇒ {
+//     const blog = await Posts.findOne(req.params._id)
+//     if (blog.error) {
+//       res.status(500).json({
+//         message: blog.error,
+//         blogs: blog.data
+//       })
+//     }
+//     res.status(200).json({
+//         message: 'success',
+//         blog: blog.data
+//       }) 
+//   });
 
 
   //update
