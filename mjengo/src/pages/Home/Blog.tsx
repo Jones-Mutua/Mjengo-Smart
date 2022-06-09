@@ -74,7 +74,7 @@ table {
 `
 
 
-export const ViewExam = () => {
+export const ViewPost = () => {
   const [blog, setBlog] = useState([]);
   const {_id} = useParams();
 
@@ -129,10 +129,10 @@ const detetePost = (_id,e) => {
 >
   <thead>
     <tr>
-      <th>Question</th>
-      <th>Unit Name</th>
+      <th>fullname</th>
+      <th>title</th>
    
-      <th>Action</th>
+      <th>body</th>
 
     </tr>
   </thead>
@@ -146,9 +146,9 @@ const detetePost = (_id,e) => {
     
       <td>{blogs.title}</td>
       <td>{blogs.body}</td>
-      <Link to={`/editExam/${blogs._id}` + _id}>
+      {/* <Link to={`/editExam/${blogs._id}` + _id}>
       <button variant="secondary" className="edit"> Edit</button>
-</Link>
+</Link> */}
       <button variant="danger"  onClick={(e) => detetePost(blogs._id,e)}>Delete</button>
       {/* <Button variant="success" >Save</Button> */}
 
