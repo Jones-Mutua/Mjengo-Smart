@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link} from "react-router-dom";
+// import { Link, Redirect} from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 // import img11 from "../../assents/images/undraw_Order_ride_re_372k.svg"
 import axios from "axios";
 import tw from 'twin.macro';
@@ -182,7 +183,7 @@ export const SignIn = () => {
 
 
           axios
-               .post('http://localhost:2500/api/auth/login', {
+               .post('http://localhost:2000/api/auth/login', {
                       email,
                       password,
                   })
@@ -190,9 +191,9 @@ export const SignIn = () => {
                       const user = res.data.data;
                       localStorage.setItem("user", JSON.stringify(user));
                       if (user.role === 'admin') {
-                          setRedirect("/panel")
+                          setRedirect("/")
                       }else if (user.role === 'client') {
-                          setRedirect('/rentals');
+                          setRedirect('/');
                           window.location.reload();
                       }
                   })
@@ -204,8 +205,8 @@ export const SignIn = () => {
               
 
 
-
-    return (
+const Login =(
+   
         < Container>
             <MainContainer>
       <WelcomeText>Welcome</WelcomeText>
@@ -222,7 +223,7 @@ export const SignIn = () => {
         <Input
          type="password" 
          value={password}
-                        
+                required        
          placeholder="*********"
          onChange={(e) => setPassword(e.target.value)}
           name="password"
@@ -231,9 +232,10 @@ export const SignIn = () => {
       </InputContainer>
       <ButtonContainer>
           
-        <StyledButton  type="submit" 
+      <StyledButton onClick={handleSubmit} type="submit" 
         
-        > 
+        >
+           <Link to={redirect}></Link>
        
           lOGIN</StyledButton>
       </ButtonContainer>
@@ -249,5 +251,5 @@ export const SignIn = () => {
         </Container>
     )
  
-
+return redirect ? <Navigate to={redirect} /> : Login;
     }
