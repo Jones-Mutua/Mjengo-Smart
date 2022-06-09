@@ -1,94 +1,74 @@
-const Router = require('express').Router();
+// const Router = require('express').Router();
 const Post = require('../models/posts');
 
-//create new blog
-Router.post('/create', async (req,res) => {
-    // if (!Object.keys(req.body).legnth) {
-    //     res.status(400).json({
-    //         message: "cannot be empty"
-    //     })
-    // }
-    const {title,body,fullname}= (req , res)
-    const blog = await  Posts.create({title,body,fullname})
-    if  (blog.error) {
-        res.status(500).json({
-            message: blog.error
-        })
-    }
-    res.status(201).json({
-        message: "‘New blog record created’"
-      })
-    
-});
 
-//get all blogs
-Router.get('/read-all', async (req, res) => {
-    const blog = await Posts.findAll()
-    if (blog.error) {
-      res.status(500).json({
-        message: Error.message,
-        blog: blog.data
-      })
-    }
-    res.status(200).json({
-        message: 'success',
-        blog: blog.data
-      }) 
-  }),
-
-  //get by id
-
-//   Router.get('/read-one/:_id', async (req, res) ⇒ {
-//     const blog = await Posts.findOne(req.params._id)
-//     if (blog.error) {
-//       res.status(500).json({
-//         message: blog.error,
-//         blogs: blog.data
-//       })
-//     }
-//     res.status(200).json({
-//         message: 'success',
-//         blog: blog.data
-//       }) 
-//   });
-
-
-  //update
-
-  Router.put('/update/:_id', async (req, res) => {
-    if (!Object.keys(req.body).length) {
-        res.status(400).json({
-        message: 'Request body cannot be empty',
-        blog: null
-      })
-   }
+module.exports = {
+  async createBlog (req,res){
+     try {  
+         let blogs = {
+                     body: req.body.body,
+                     fullname:req.body.fullname,
+                     title: req.body.title,
+        
+         };
  
-   const blog = await Posts.update(req.params._id, req.body)
-   if (blog.error) {
-     res.status(500).json({
-       message: blog.error,
-       blog: blog.data
-     })
-   }
-   res.status(200).json({
-       message: 'success',
-       blog: blog.data
-     }) 
- });
+         console.log(blogs)
+         const blog = await Post.create(blogs);
+         res.status(200).send(blog);
+   
+     } catch (error) {
+         console.log("this is the error", error);
+     }
+  },
+  //  Getting all Post
 
- //delete
+  async getPostAll (req,res){
+    try {
+        let blog = await Post.find({})
+        res.status(200).json(blog)
 
- Router.delete('/delete/:_id', async (req, res) => {
-    const isDeleted = await Posts.deleteOne(req.params._id)
-    if (isDeleted.error) {
-      res.status(500).json({
-        message: isDeleted.error,
-      })
+    }catch(err){
+        res.status(500).json("Something went wrong");
+
+        // console.log('this is the error',err);
+
     }
-    res.status(200).json({
-        message: 'Deleted Successfully'
-      }) 
-  })
+},
+// get post by id
+async getPostById  (req,res) {
+try {
+let id = req.params._id
+let blog = await Post.findOne({ where: {_id :id }})
+res.send(200 ,'Post  succefully retrived by id ')
 
+} catch (error) {
+console.log(error);
+}
+},
+ // Updating post
+ async updatePost (req,res){
+  try{
+      let id = req.params._id
+      let blog = await Post.update(req.body,{where:{_id :id }})
+      res.ssend(200 , "Post updated succefully")
 
-module.exports = Router;
+  } catch (err){
+      console.log(err)
+  }
+},
+
+// delete post by id
+async deletePost (req,res){
+  try{
+      const id = req.params._id
+      await Post.deleteOne({where:{_id:id}})
+      
+      res.send(200,"Post Deleted");
+
+  }catch (err){
+      res.send(500 ,"Something went wrong while deleting post",err)
+
+     
+  }
+}
+}
