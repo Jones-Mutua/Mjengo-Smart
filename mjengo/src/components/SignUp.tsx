@@ -11,16 +11,55 @@ import styled from 'styled-components';
 // import Img5 from '../../assents/images/undraw_By_the_road_re_vvs7.svg'
 
 const Register = styled.div`
-// background: blue;
+ /* background: blue; */
+ display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* padding-top: 1px; */
+  margin-top: 50px;
+  margin-left: 34em;
+  margin-right: 34em;
+
+  height: 80vh;
+  /* width: -30%; */
+  justify-content: center;
+  /* background: rgba(255, 255, 255, 0.15); */
+   box-shadow: 0 8px 35px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+  border-radius: 10px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+
 
 ${tw`
-text-sm h-full  w-full font-bold text-gray-900   block
+// text-sm h-full  w-full font-bold text-gray-900   block
+// ml-96
+// mr-96
+font-bold text-gray-900
+text-sm
+bg-purple-300
+// block
 `}
 
 `
-const Top = styled.div`
+const Links = styled.div`
+color: white ;
+/* background-color: white; */
+/* background: white; */
 ${tw`
-text-sm h-full  w-full font-bold text-gray-900   block
+// bg-white
+`}
+`
+const Top = styled.div`
+margin-top: -10em;
+${tw`
+// text-sm h-full  w-full font-bold text-gray-900  
+text-gray-900
+font-bold
+text-sm
+w-full
 `}
 `
 const Account = styled.div`
@@ -32,26 +71,36 @@ text-gray-900 mt-4 text-center
 const Label = styled.label`
 ${tw`
 text-sm font-bold text-gray-900 block
+mt-5
+flex
 `}
 `
 const Contain = styled.div`
+margin-bottom: -10em;
 ${tw`
-max-w-md w-full mx-auto mt-4 bg-transparent p-8 border border-blue-300
+max-w-md w-full mx-auto 
+mt-6 bg-transparent p-1 border border-blue-300
+
 `}
 `
 const Input  = styled.input`
+box-shadow: 0 8px 35px 0 rgba(31, 38, 135, 0.37);
+
 ${tw`
-w-full p-2 border border-blue-300 rounded mt-1 
+w-full p-3 border border-blue-900 rounded mt-2 
 `}
 `
 const All = styled.div`
 ${tw`
-font-medium  text-sm  text-blue-500
+font-serif  text-sm  text-blue-300 mt-3
 `}
 `
 const Button = styled.button`
+color: red;
 ${tw`
-w-full py-2 px-4 bg-gray-500 hover:bg-gray-700 rounded-md text-green-200 
+w-full py-2 px-4 bg-purple-400 mt-2
+ hover:bg-purple-300 
+ rounded-md text-blue-900
 `}
 `
 type UserSubmitForm = {
@@ -192,7 +241,9 @@ export  function SignUp() {
           </All>
         <div className="form-group" >
           <Button onClick={onSubmit} type="submit" className="">
-            <Link  to="/">Register</Link>
+<Links>
+<Link  to="/">Register</Link>
+</Links>
           </Button>
          
 

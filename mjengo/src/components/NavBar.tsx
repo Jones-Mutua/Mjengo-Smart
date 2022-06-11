@@ -3,6 +3,20 @@ import getCurrentUser from "../lib/auth";
 import  './NavBar.css';
 
 import { useNavigate } from "react-router-dom";
+import styled from 'styled-components';
+import tw from 'twin.macro';
+
+const Nav = styled.div`
+
+    ${tw`
+        bg-purple-200
+        `}
+
+
+`
+
+
+
 
 export const NavBar = () => {
  const navigate = useNavigate();
@@ -25,17 +39,17 @@ export const NavBar = () => {
      }
  }, []);
   return (
-    <>
+    <Nav>
     <nav>
         <label  className="logo">Mjengo Smart</label>
         <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact Us</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/aboutus">About</a></li>
+            <li><a href="contactus">Contact Us</a></li>
             {
                 !user && (
 <>
-                 <li><a href="signup">Register</a></li>
+                 <li><a href="/signup">Register</a></li>
                  <li><a href="/login">Login</a></li>
                  </>
                 )
@@ -57,6 +71,6 @@ export const NavBar = () => {
 
         </ul>
     </nav>
-    </>
+    </Nav>
   )
 }

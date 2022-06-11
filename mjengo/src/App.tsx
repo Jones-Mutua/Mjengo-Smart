@@ -5,7 +5,9 @@ import  {HomePage } from './pages/Home/index';
 import './App.css';
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
-import { CreatePost } from './components/BlogForm';
+import { About } from './pages/About/About';
+import { Contact } from './pages/Contact/Contact';
+// import { CreatePost } from './components/BlogForm';
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
    <Route path="/" element={<HomePage />} />
      <Route path='/login' element={<Login />} />
     <Route path='/signup' element={<Register />} />
-    <Route path='/addpost' element={<CreatePost />} />
+    <Route path='/aboutus' element={<About />} />
+    <Route path='/contactus' element={<Contact />} />
+    {/* <Route path='/addpost' element={<CreatePost />} /> */}
    </Routes>
    
    </BrowserRouter>

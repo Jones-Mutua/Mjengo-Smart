@@ -10,12 +10,13 @@ body{
     /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
 }
 nav{
-    background: purple;
+    /* background: purple; */
     height: 80px;
     width: 100%;
+    
 }
 label{
-    color: aliceblue;
+    color: purple;
     font-size: 35px;
     line-height: 80px;
     padding: 0 100px;
@@ -31,6 +32,7 @@ nav ul {
 nav ul li a:hover{
     
     background: #6b0479;
+    color: aliceblue;
 }
 
 nav ul li{
@@ -42,9 +44,11 @@ nav ul li{
 
 }
 nav ul li a{
-    color:rgb(241, 232, 241);
+    color:rgb(94, 6, 94);
     font-size: 17px;
     padding: 7px 13px;
     border-radius: 3px;
     text-transform: uppercase;
 }
+
+
