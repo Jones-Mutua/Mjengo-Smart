@@ -26,9 +26,10 @@ const SectionThreeWrapper = styled.div`
     width: 50%;
     height: 600px;
     /* background: url(./images/jones5.jpg) ; */
-    background: url('../assets/img1.jpg');
+   background-image: url('../assets/img3.jpg');
     ${tw`
     bg-purple-200
+    
     `}
 
     border-radius: 8px;

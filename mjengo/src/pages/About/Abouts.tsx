@@ -1,12 +1,16 @@
 import React from 'react';
 import './about.css';
+import img1 from "../../assets/p1.jpg";
+import img2 from "../../assets/p2.jpg";
+
 
 export const Abouts = () => {
   return (
     <div>
 
- <nav></nav>  
+ {/* <nav></nav>   */}
 <div className="header">
+{/* <img src={img1} alt=""/> */}
 
 </div>
 
@@ -22,7 +26,7 @@ export const Abouts = () => {
 
       </div>
       <div className="right">
-         <img src="../../assets/img1.jpg" alt='' />
+         <img src={img2} alt='' />
       </div>
       <div className="clear"></div>
    </div>
@@ -32,7 +36,7 @@ export const Abouts = () => {
    <div className="mission">
      
       <div className="left">
-         <img src="../../assets/img12.jpg"/>
+         <img src={img1} alt=""/>
       </div>
         <div className="right">
          <h1>Mission Statement</h1>
@@ -77,7 +81,9 @@ export const Abouts = () => {
           
       <div className="card">
          <div className="circle-container">
-            <h1>R</h1>
+            {/* <h1>R</h1> */}
+            {/* <img src={img1} alt=""/> */}
+
          </div>
          <h2>Rajesh</h2>
          <h4>Evangelist</h4>
@@ -86,9 +92,12 @@ export const Abouts = () => {
           
           
           
-      <div className="card">
-        <div className="circle-container">
-            <h1 >B</h1>
+      <div className="card jones">
+      {/* <img src={img1} alt=""/>  */}
+        <div className="circle-container jones"  >
+            {/* <h1 >B</h1> */}
+            {/* <img src={img1} alt=""/> */}
+
          </div>
          <h2>Bharti</h2>
          <h4>Evangelist</h4>
